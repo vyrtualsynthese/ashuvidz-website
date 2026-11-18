@@ -26,6 +26,7 @@ SKIP_SCHEMES = ("http://", "https://", "mailto:", "tel:", "data:", "#")
 IGNORED_DIRS = {".git", ".superpowers", "tests", "docs", "scripts"}
 AFFILIATE_HOSTS = ("instant-gaming.com", "robertsspaceindustries.com", "amzn.to")
 REQUIRED_META = ("og:title", "og:description", "og:image", "og:url")
+TYPO_FIELDS = ("description", "og:title", "og:description", "og:image:alt", "twitter:title", "twitter:description")
 HEADINGS = ("h1", "h2", "h3", "h4", "h5", "h6")
 
 
@@ -106,16 +107,26 @@ class Page:
             (link.get("href", "") for link in parser.links if link.get("rel", "").lower() == "canonical"),
             "",
         )
+        self.asset_links = [
+            link.get("href", "")
+            for link in parser.links
+            if link.get("href")
+            and not {"canonical", "alternate"} & set(link.get("rel", "").lower().split())
+        ]
 
 
 def check_links(page: Page, root: Path, problems: list[str]) -> None:
-    targets = list(page.anchors) + [{"href": s} for s in page.sources]
+    targets = (
+        list(page.anchors)
+        + [{"href": s} for s in page.sources]
+        + [{"href": s} for s in page.asset_links]
+    )
     for anchor in targets:
         href = anchor.get("href", "")
         if href == "" or href == "#":
             problems.append(f"{page.rel}: LINK-EMPTY: a link with no destination")
             continue
-        if href.startswith(SKIP_SCHEMES):
+        if href.startswith("//") or href.startswith(SKIP_SCHEMES):
             continue
         target = href.split("#", 1)[0].split("?", 1)[0]
         if target.startswith("/"):
@@ -158,6 +169,16 @@ def check_typo(page: Page, problems: list[str]) -> None:
             problems.append(f"{page.rel}: FR-TYPO: non-breaking space before ! or ?, use U+202F")
         if heading and text.strip().endswith("."):
             problems.append(f"{page.rel}: FR-TYPO: full stop at the end of a heading")
+    for field in TYPO_FIELDS:
+        value = page.title if field == "title" else page.metas.get(field, "")
+        if not value:
+            continue
+        if "'" in value:
+            problems.append(f"{page.rel}: FR-TYPO: straight apostrophe in {field}")
+        if "\u2013" in value or "\u2014" in value:
+            problems.append(f"{page.rel}: FR-TYPO: em or en dash in {field}")
+        if re.search(r" [;:!?]", value):
+            problems.append(f"{page.rel}: FR-TYPO: plain space before punctuation in {field}")
 
 
 def check_external_rel(page: Page, problems: list[str]) -> None:
@@ -176,18 +197,35 @@ def check_hreflang(pages: list[Page], by_canonical: dict[str, Page], problems: l
         if page.rel.endswith("404.html"):
             continue
         alts = page.alternates
+        own = primary_lang(page.lang)
+        other = "en" if own == "fr" else "fr"
         for key in ("fr", "en", "x-default"):
             if key not in alts:
                 problems.append(f"{page.rel}: HREFLANG: missing hreflang={key}")
         if "fr" in alts and alts.get("x-default") != alts["fr"]:
             problems.append(f"{page.rel}: HREFLANG: x-default is not the French URL")
-        if page.canonical and alts.get(page.lang) != page.canonical:
+        if page.canonical and alts.get(own) != page.canonical:
             problems.append(f"{page.rel}: HREFLANG: canonical is not the hreflang of its own language")
-        twin = by_canonical.get(alts.get("en", ""))
+        twin, other = twin_of(page, by_canonical)
         if twin is None:
-            problems.append(f"{page.rel}: HREFLANG: the English twin does not exist")
-        elif twin.alternates.get("fr") != alts.get("fr"):
+            problems.append(
+                f"{page.rel}: HREFLANG: no {other} page behind {alts.get(other, 'its alternate')}"
+            )
+        elif twin.alternates.get(own) != page.canonical:
             problems.append(f"{page.rel}: HREFLANG: the twin does not point back")
+
+
+def primary_lang(lang: str) -> str:
+    return lang.split("-", 1)[0].lower()
+
+
+def twin_of(page: Page, by_canonical: dict[str, Page]) -> tuple[Page | None, str]:
+    own = primary_lang(page.lang)
+    other = "en" if own == "fr" else "fr"
+    twin = by_canonical.get(page.alternates.get(other, ""))
+    if twin is None or twin is page or primary_lang(twin.lang) != other:
+        return None, other
+    return twin, other
 
 
 def outbound_hosts(page: Page) -> set[str]:
@@ -205,7 +243,7 @@ def check_parity(pages: list[Page], by_canonical: dict[str, Page], problems: lis
     for page in pages:
         if page.rel.endswith("404.html"):
             continue
-        twin = by_canonical.get(page.alternates.get("en", ""))
+        twin, _ = twin_of(page, by_canonical)
         if twin is None or (page.rel, twin.rel) in seen:
             continue
         seen.add((page.rel, twin.rel))
@@ -229,7 +267,11 @@ def check_sitemap(root: Path, pages: list[Page], problems: list[str]) -> None:
         problems.append(f"sitemap.xml: SITEMAP: {error}")
         return
     locs = [el.text.strip() for el in tree.iter("{http://www.sitemaps.org/schemas/sitemap/0.9}loc") if el.text]
-    known = {page.canonical: page for page in pages if page.canonical}
+    known = {
+        page.canonical: page
+        for page in pages
+        if page.canonical and not page.rel.endswith("404.html")
+    }
     for loc in locs:
         if loc not in known:
             problems.append(f"sitemap.xml: SITEMAP: {loc} has no page")

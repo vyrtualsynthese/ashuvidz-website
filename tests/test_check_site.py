@@ -50,6 +50,26 @@ class CheckSiteTest(unittest.TestCase):
         self.assertEqual(result.returncode, 1)
         self.assertIn("PARITY", result.stdout)
 
+    def test_english_page_without_french_twin(self):
+        result = self.run_check("broken-orphan-en")
+        self.assertEqual(result.returncode, 1)
+        self.assertIn("HREFLANG", result.stdout)
+
+    def test_hreflang_pointing_at_itself(self):
+        result = self.run_check("broken-hreflang-self")
+        self.assertEqual(result.returncode, 1)
+        self.assertIn("HREFLANG", result.stdout)
+
+    def test_stylesheet_link_missing_file(self):
+        result = self.run_check("broken-link-href")
+        self.assertEqual(result.returncode, 1)
+        self.assertIn("LINK-INTERNAL", result.stdout)
+
+    def test_french_typography_in_meta_description(self):
+        result = self.run_check("broken-typo-attr")
+        self.assertEqual(result.returncode, 1)
+        self.assertIn("FR-TYPO", result.stdout)
+
     def test_page_missing_from_sitemap(self):
         result = self.run_check("broken-sitemap")
         self.assertEqual(result.returncode, 1)
