@@ -121,3 +121,6 @@ fabric.properties
 .DS_Store
 Thumbs.db
 *:Zone.Identifier
+
+# Brainstorm companion mockups (local only)
+.superpowers/
