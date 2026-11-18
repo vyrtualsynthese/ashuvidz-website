@@ -1,0 +1,11 @@
+User-agent: *
+Allow: /
+
+# The repository root is served as the site, so source files are fetched by
+# crawlers too unless they are named here.
+Disallow: /*.md$
+Disallow: /.gitignore
+Disallow: /.idea/
+Disallow: /docs/
+
+Sitemap: https://ashuvidz.com/sitemap.xml
