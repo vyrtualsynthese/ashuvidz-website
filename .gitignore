@@ -124,3 +124,7 @@ Thumbs.db
 
 # Brainstorm companion mockups (local only)
 .superpowers/
+
+# Python
+__pycache__/
+*.pyc
