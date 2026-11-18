@@ -6,6 +6,8 @@ All notable changes to this repository are documented here. The format follows
 
 ## [Unreleased]
 
+## [1.1.0] - 2026-11-18
+
 ### Added
 
 - Three pages in two languages, six URLs: the home page at `/`, the about page at `/moi/`, the
