@@ -1,83 +1,68 @@
 <!doctype html>
 <html lang="fr">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="robots" content="noindex" />
-    <title>Page introuvable - AshuVidz</title>
+
+    <title>Page introuvable, AshuVidz</title>
+    <meta
+      name="description"
+      content="Cette adresse ne mène nulle part. Le site a peut-être bougé."
+    />
+    <link rel="canonical" href="https://ashuvidz.com/404.html" />
+
+    <meta property="og:title" content="Page introuvable, AshuVidz" />
+    <meta
+      property="og:description"
+      content="Cette adresse ne mène nulle part. Le site a peut-être bougé."
+    />
+    <meta property="og:image" content="https://ashuvidz.com/assets/og-image.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Le A d’AshuVidz sur un fond nuit" />
+    <meta property="og:url" content="https://ashuvidz.com/404.html" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="AshuVidz" />
+    <meta property="og:locale" content="fr_FR" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <meta name="theme-color" content="#0a0f1e" />
     <link rel="icon" href="/favicon.ico" sizes="any" />
     <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png" />
-    <style>
-      :root {
-        --primary: #f97316;
-        --secondary: #fb7185;
-        --text-light: #f1f5f9;
-        --text-muted: #94a3b8;
-        --background: #0f172a;
-      }
-
-      * {
-        box-sizing: border-box;
-        margin: 0;
-        padding: 0;
-      }
-
-      body {
-        font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
-        background: var(--background);
-        color: var(--text-light);
-        min-height: 100vh;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        gap: 1rem;
-        padding: 2rem 1rem;
-        text-align: center;
-      }
-
-      img {
-        width: 96px;
-        height: 96px;
-      }
-
-      h1 {
-        font-size: 2rem;
-      }
-
-      p {
-        color: var(--text-muted);
-        max-width: 40ch;
-      }
-
-      a {
-        margin-top: 1rem;
-        padding: 0.8rem 1.5rem;
-        background: var(--primary);
-        color: white;
-        border-radius: 9999px;
-        text-decoration: none;
-        font-weight: 600;
-      }
-
-      a:hover,
-      a:focus-visible {
-        background: var(--secondary);
-      }
-    </style>
+    <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/Anton-Regular.woff2" crossorigin />
+    <link rel="stylesheet" href="/assets/site.css" />
   </head>
   <body>
-    <img
-      src="/assets/Ashuvidz_Logo_trans.webp"
-      alt="Logo AshuVidz"
-      width="96"
-      height="96"
-    />
-    <h1>Page introuvable</h1>
-    <p>
-      La page demandée n'existe pas ou a été déplacée. Retrouvez les liens vers
-      les vidéos, le Discord et le forum depuis l'accueil.
-    </p>
-    <a href="/">Retour à l'accueil</a>
+    <a class="skip-link" href="#contenu">Aller au contenu</a>
+
+    <header class="site-header">
+      <div class="site-header__inner">
+        <a class="brand" href="/" aria-label="AshuVidz, accueil">
+          <img src="/assets/Ashuvidz_Logo_trans.webp" alt="AshuVidz" width="44" height="44" />
+        </a>
+      </div>
+    </header>
+
+    <main id="contenu" class="page page--center">
+      <p class="kicker">Erreur 404</p>
+      <h1 class="promise">Page introuvable</h1>
+      <p class="lede">
+        Cette adresse ne mène nulle part. Le site a peut-être bougé, et la page avec.
+      </p>
+      <p class="lede" lang="en">
+        This address leads nowhere. The site may have moved, and the page with it.
+      </p>
+      <div class="actions">
+        <a class="btn btn--primary" href="/">Rentrer à l’accueil</a>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <div class="site-footer__inner">
+        <a href="mailto:ashuvidz@gmail.com">ashuvidz@gmail.com</a>
+        <span>© 2026 AshuVidz</span>
+      </div>
+    </footer>
   </body>
 </html>
