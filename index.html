@@ -18,25 +18,26 @@
     <!-- Open Graph / Réseaux sociaux -->
     <meta
       property="og:title"
-      content="AshuVidz - Communauté Gaming sur Guild Wars 2 & Star Citizen"
+      content="AshuVidz - Communauté Gaming sur Guild Wars 2 &amp; Star Citizen"
     />
     <meta
       property="og:description"
       content="Suivez AshuVidz sur YouTube et Twitch ! Rejoignez notre communauté multigaming sur Guild Wars 2, Star Citizen et plus encore."
     />
-    <meta
-      property="og:image"
-      content="https://ashuvidz.com/assets/Ashuvidz_BG.webp"
-    />
-    <!-- remplace si besoin par une URL absolue -->
+    <meta property="og:image" content="https://ashuvidz.com/assets/og-image.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Logo AshuVidz" />
     <meta property="og:url" content="https://ashuvidz.com/" />
     <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="AshuVidz" />
+    <meta property="og:locale" content="fr_FR" />
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta
       name="twitter:title"
-      content="AshuVidz - Communauté Gaming sur Guild Wars 2 & Star Citizen"
+      content="AshuVidz - Communauté Gaming sur Guild Wars 2 &amp; Star Citizen"
     />
     <meta
       name="twitter:description"
@@ -44,17 +45,86 @@
     />
     <meta
       name="twitter:image"
-      content="https://ashuvidz.com/assets/Ashuvidz_BG.webp"
+      content="https://ashuvidz.com/assets/og-image.jpg"
     />
+    <meta name="twitter:image:alt" content="Logo AshuVidz" />
 
-    <title>AshuVidz - Communauté Gaming sur Guild Wars 2 & Star Citizen</title>
+    <link rel="canonical" href="https://ashuvidz.com/" />
+    <meta name="theme-color" content="#0f172a" />
 
-    <link rel="icon" href="favicon.ico" />
+    <title>AshuVidz - Communauté Gaming sur Guild Wars 2 &amp; Star Citizen</title>
+
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png" />
+    <link
+      rel="preload"
+      as="image"
+      href="assets/Ashuvidz_BG.webp"
+      fetchpriority="high"
+    />
+    <link
+      rel="preload"
+      as="font"
+      type="font/woff2"
+      href="assets/fonts/poppins-600-latin.woff2"
+      crossorigin
+    />
     <link
       rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+      integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
     />
     <style>
+      /* Poppins, self-hosted: the file is served with the site, so no
+         request leaves for a font CDN. Latin and Latin Extended cover French. */
+      @font-face {
+        font-family: "Poppins";
+        font-style: normal;
+        font-weight: 400;
+        font-display: swap;
+        src: url("assets/fonts/poppins-400-latin.woff2") format("woff2");
+        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6,
+          U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122,
+          U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+      }
+
+      @font-face {
+        font-family: "Poppins";
+        font-style: normal;
+        font-weight: 400;
+        font-display: swap;
+        src: url("assets/fonts/poppins-400-latin-ext.woff2") format("woff2");
+        unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7,
+          U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F,
+          U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F,
+          U+A720-A7FF;
+      }
+
+      @font-face {
+        font-family: "Poppins";
+        font-style: normal;
+        font-weight: 600;
+        font-display: swap;
+        src: url("assets/fonts/poppins-600-latin.woff2") format("woff2");
+        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6,
+          U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122,
+          U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+      }
+
+      @font-face {
+        font-family: "Poppins";
+        font-style: normal;
+        font-weight: 600;
+        font-display: swap;
+        src: url("assets/fonts/poppins-600-latin-ext.woff2") format("woff2");
+        unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7,
+          U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F,
+          U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F,
+          U+A720-A7FF;
+      }
+
       :root {
         --primary: #f97316;
         --secondary: #fb7185;
@@ -68,6 +138,9 @@
         box-sizing: border-box;
         margin: 0;
         padding: 0;
+      }
+
+      html {
         scroll-behavior: smooth;
       }
 
@@ -146,6 +219,13 @@
         transform: translateY(-5px);
       }
 
+      main {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
       section {
         width: 100%;
         max-width: 1000px;
@@ -169,7 +249,8 @@
       .cards {
         display: grid;
         gap: 1.5rem;
-        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(240px, 320px));
+        justify-content: center;
       }
 
       .card {
@@ -230,6 +311,48 @@
         animation: fadeIn 2s ease-out;
       }
 
+      .contact {
+        color: var(--text-muted);
+        text-decoration: none;
+      }
+
+      .skip-link {
+        position: absolute;
+        top: -4rem;
+        left: 1rem;
+        z-index: 10;
+        padding: 0.75rem 1.25rem;
+        background: var(--primary);
+        color: white;
+        border-radius: 9999px;
+        text-decoration: none;
+        font-weight: 600;
+        transition: top 0.2s;
+      }
+
+      .skip-link:focus {
+        top: 1rem;
+      }
+
+      a:focus-visible {
+        outline: 3px solid var(--secondary);
+        outline-offset: 3px;
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        html {
+          scroll-behavior: auto;
+        }
+
+        *,
+        *::before,
+        *::after {
+          animation-duration: 0.01ms !important;
+          animation-iteration-count: 1 !important;
+          transition-duration: 0.01ms !important;
+        }
+      }
+
       @keyframes fadeIn {
         from {
           opacity: 0;
@@ -263,146 +386,241 @@
     </style>
   </head>
   <body>
+    <a class="skip-link" href="#contenu">Aller au contenu</a>
+
     <header>
-      <img src="assets/Ashuvidz_Logo_trans.webp" alt="Logo AshuVidz" />
+      <img
+        src="assets/Ashuvidz_Logo_trans.webp"
+        alt="Logo AshuVidz"
+        width="140"
+        height="140"
+      />
       <h1>AshuVidz</h1>
       <p class="tagline">MMORPG | Stratégie | Simulation</p>
       <div class="hero-buttons">
-        <a href="https://www.youtube.com/ashuvidz" target="_blank">YouTube</a>
-        <a href="https://www.twitch.tv/ashuvidz" target="_blank">Twitch</a>
+        <a
+          href="https://www.youtube.com/ashuvidz"
+          target="_blank"
+          rel="noopener noreferrer"
+          >YouTube</a
+        >
+        <a
+          href="https://www.twitch.tv/ashuvidz"
+          target="_blank"
+          rel="noopener noreferrer"
+          >Twitch</a
+        >
       </div>
     </header>
 
-    <section>
-      <div class="section-title">Bienvenue</div>
-      <p class="section-text">
-        Bienvenue sur AshuVidz.com ! Rejoignez nos réseaux sociaux pour suivre
-        tous nos contenus vidéos et lives en direct.
-      </p>
-      <div class="cta-buttons">
-        <a href="https://www.youtube.com/ashuvidz" target="_blank"
-          ><i class="fab fa-youtube"></i> Regarder les vidéos</a
-        >
-        <a href="https://www.twitch.tv/ashuvidz" target="_blank"
-          ><i class="fab fa-twitch"></i> Regarder en live</a
-        >
-      </div>
-      <div class="social-links">
-        <a href="https://x.com/vyrtualsynthese" target="_blank"
-          ><i class="fab fa-x-twitter"></i
-        ></a>
-        <a href="https://www.instagram.com/vyrtualsynthese/" target="_blank"
-          ><i class="fab fa-instagram"></i
-        ></a>
-        <a href="https://www.tiktok.com/@ashuvidz" target="_blank"
-          ><i class="fab fa-tiktok"></i
-        ></a>
-      </div>
-    </section>
+    <main id="contenu">
+      <section aria-labelledby="titre-bienvenue">
+        <h2 class="section-title" id="titre-bienvenue">Bienvenue</h2>
+        <p class="section-text">
+          Bienvenue sur AshuVidz.com ! Rejoignez nos réseaux sociaux pour suivre
+          tous nos contenus vidéos et lives en direct.
+        </p>
+        <div class="cta-buttons">
+          <a
+            href="https://www.youtube.com/ashuvidz"
+            target="_blank"
+            rel="noopener noreferrer"
+            ><i class="fab fa-youtube" aria-hidden="true"></i> Regarder les
+            vidéos</a
+          >
+          <a
+            href="https://www.twitch.tv/ashuvidz"
+            target="_blank"
+            rel="noopener noreferrer"
+            ><i class="fab fa-twitch" aria-hidden="true"></i> Regarder en live</a
+          >
+        </div>
+        <nav class="social-links" aria-label="Suivre AshuVidz">
+          <a
+            href="https://x.com/vyrtualsynthese"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="AshuVidz sur X"
+            title="AshuVidz sur X"
+            ><i class="fab fa-x-twitter" aria-hidden="true"></i
+          ></a>
+          <a
+            href="https://www.instagram.com/vyrtualsynthese/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="AshuVidz sur Instagram"
+            title="AshuVidz sur Instagram"
+            ><i class="fab fa-instagram" aria-hidden="true"></i
+          ></a>
+          <a
+            href="https://www.tiktok.com/@ashuvidz"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="AshuVidz sur TikTok"
+            title="AshuVidz sur TikTok"
+            ><i class="fab fa-tiktok" aria-hidden="true"></i
+          ></a>
+        </nav>
+      </section>
 
-    <section>
-      <div class="section-title">Rejoindre la Communauté</div>
-      <p class="section-text">
-        Plongez dans la communauté multigaming d'AshuVidz : entraide, partage et
-        passion autour de vos jeux favoris !
-      </p>
-      <div class="cards">
-        <a href="https://discord.gg/rzW36hah5x" class="card" target="_blank">
-          <i class="fab fa-discord"></i>
-          Serveur Discord
-        </a>
-        <a href="https://wiki.ashuvidz.com" class="card" target="_blank">
-          <i class="fas fa-book"></i>
-          Wiki Communautaire
-        </a>
-        <a href="https://forum.ashuvidz.com/" class="card" target="_blank">
-          <i class="fas fa-pen-nib"></i>
-          Forum AshuVidz
-        </a>
-      </div>
-    </section>
+      <section aria-labelledby="titre-communaute">
+        <h2 class="section-title" id="titre-communaute">
+          Rejoindre la Communauté
+        </h2>
+        <p class="section-text">
+          Plongez dans la communauté multigaming d'AshuVidz : entraide, partage
+          et passion autour de vos jeux favoris !
+        </p>
+        <div class="cards">
+          <a
+            href="https://discord.gg/rzW36hah5x"
+            class="card"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <i class="fab fa-discord" aria-hidden="true"></i>
+            Serveur Discord
+          </a>
+          <a
+            href="https://forum.ashuvidz.com/"
+            class="card"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <i class="fas fa-pen-nib" aria-hidden="true"></i>
+            Forum AshuVidz
+          </a>
+        </div>
+      </section>
 
-    <section>
-      <div class="section-title">Recrutement</div>
-      <p class="section-text">
-        Envie de rejoindre nos guildes et organisations ? Postulez et participez
-        à nos aventures communautaires sur vos jeux préférés.
-      </p>
-      <div class="cards">
-        <a href="https://discord.gg/4NEa9eBBbS" class="card" target="_blank">
-          <i class="fas fa-users"></i>
-          Guilde Guild Wars 2
-        </a>
-        <a href="#" class="card" target="_blank">
-          <i class="fas fa-rocket"></i>
-          Organisation Star Citizen
-        </a>
-      </div>
-    </section>
+      <section aria-labelledby="titre-recrutement">
+        <h2 class="section-title" id="titre-recrutement">Recrutement</h2>
+        <p class="section-text">
+          Envie de rejoindre nos guildes et organisations ? Postulez et
+          participez à nos aventures communautaires sur vos jeux préférés.
+        </p>
+        <div class="cards">
+          <a
+            href="https://discord.gg/4NEa9eBBbS"
+            class="card"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <i class="fas fa-users" aria-hidden="true"></i>
+            Guilde Guild Wars 2
+          </a>
+        </div>
+      </section>
 
-    <section>
-      <div class="section-title">Partenaires</div>
-      <p class="section-text">
-        Soutenez mes contenus en passant par mes liens partenaires !
-      </p>
-      <div class="cards">
-        <a
-          href="https://www.instant-gaming.com/?igr=ashuvidz"
-          class="card"
-          target="_blank"
-        >
-          <i class="fas fa-gamepad"></i>
-          Instant Gaming
-        </a>
-        <a
-          href="https://robertsspaceindustries.com/enlist?referral=STAR-4G67-3JHH"
-          class="card"
-          target="_blank"
-        >
-          <i class="fas fa-space-shuttle"></i>
-          Star Citizen Referral
-        </a>
-        <a href="https://amzn.tu/40agkE6" class="card" target="_blank">
-          <i class="fab fa-amazon"></i>
-          Amazon
-        </a>
-      </div>
-    </section>
+      <section aria-labelledby="titre-partenaires">
+        <h2 class="section-title" id="titre-partenaires">Partenaires</h2>
+        <p class="section-text">
+          Soutenez mes contenus en passant par mes liens partenaires !
+        </p>
+        <div class="cards">
+          <a
+            href="https://www.instant-gaming.com/?igr=ashuvidz"
+            class="card"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <i class="fas fa-gamepad" aria-hidden="true"></i>
+            Instant Gaming
+          </a>
+          <a
+            href="https://robertsspaceindustries.com/enlist?referral=STAR-4G67-3JHH"
+            class="card"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <i class="fas fa-space-shuttle" aria-hidden="true"></i>
+            Star Citizen Referral
+          </a>
+          <a
+            href="https://amzn.to/40agkE6"
+            class="card"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <i class="fab fa-amazon" aria-hidden="true"></i>
+            Amazon
+          </a>
+        </div>
+      </section>
+    </main>
 
-    <div class="social-links">
-      <a href="https://discord.gg/rzW36hah5x" target="_blank"
-        ><i class="fab fa-discord"></i
+    <nav class="social-links" aria-label="Autres réseaux">
+      <a
+        href="https://discord.gg/rzW36hah5x"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Discord AshuVidz"
+        title="Discord AshuVidz"
+        ><i class="fab fa-discord" aria-hidden="true"></i
       ></a>
-      <a href="https://www.instagram.com/vyrtualsynthese/" target="_blank"
-        ><i class="fab fa-instagram"></i
+      <a
+        href="https://www.instagram.com/vyrtualsynthese/"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="AshuVidz sur Instagram"
+        title="AshuVidz sur Instagram"
+        ><i class="fab fa-instagram" aria-hidden="true"></i
       ></a>
-      <a href="https://www.tiktok.com/@ashuvidz" target="_blank"
-        ><i class="fab fa-tiktok"></i
+      <a
+        href="https://www.tiktok.com/@ashuvidz"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="AshuVidz sur TikTok"
+        title="AshuVidz sur TikTok"
+        ><i class="fab fa-tiktok" aria-hidden="true"></i
       ></a>
-      <a href="https://x.com/vyrtualsynthese" target="_blank"
-        ><i class="fab fa-x-twitter"></i
+      <a
+        href="https://x.com/vyrtualsynthese"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="AshuVidz sur X"
+        title="AshuVidz sur X"
+        ><i class="fab fa-x-twitter" aria-hidden="true"></i
       ></a>
-      <a href="https://www.reddit.com/r/AshuvidzCommunity/" target="_blank"
-        ><i class="fab fa-reddit"></i
+      <a
+        href="https://www.reddit.com/r/AshuvidzCommunity/"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Communauté AshuVidz sur Reddit"
+        title="Communauté AshuVidz sur Reddit"
+        ><i class="fab fa-reddit" aria-hidden="true"></i
       ></a>
-      <a href="https://github.com/vyrtualsynthese" target="_blank"
-        ><i class="fab fa-github"></i
+      <a
+        href="https://github.com/vyrtualsynthese"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="VyrtualSynthese sur GitHub"
+        title="VyrtualSynthese sur GitHub"
+        ><i class="fab fa-github" aria-hidden="true"></i
       ></a>
-      <a href="https://medium.com/@vyrtualsynthese" target="_blank"
-        ><i class="fab fa-medium"></i
+      <a
+        href="https://medium.com/@vyrtualsynthese"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="VyrtualSynthese sur Medium"
+        title="VyrtualSynthese sur Medium"
+        ><i class="fab fa-medium" aria-hidden="true"></i
       ></a>
-      <a href="https://dev.to/vyrtualsynthese" target="_blank"
-        ><i class="fab fa-dev"></i
+      <a
+        href="https://dev.to/vyrtualsynthese"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="VyrtualSynthese sur DEV Community"
+        title="VyrtualSynthese sur DEV Community"
+        ><i class="fab fa-dev" aria-hidden="true"></i
       ></a>
-    </div>
+    </nav>
 
     <footer>
-      <a
-        href="mailto:ashuvidz@gmail.com"
-        style="color: var(--text-muted); text-decoration: none"
+      <a class="contact" href="mailto:ashuvidz@gmail.com"
         >Me contacter : ashuvidz@gmail.com</a
       >
-      <div>© 2025 AshuVidz - Tous droits réservés</div>
+      <div>© 2026 AshuVidz - Tous droits réservés</div>
     </footer>
   </body>
 </html>
