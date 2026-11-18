@@ -14,9 +14,11 @@ All notable changes to this repository are documented here. The format follows
   links.
 - `assets/site.css`, one stylesheet for every page: the brand palette (void, night, paper, coral),
   Anton for headlines, IBM Plex Mono for labels and system fonts for prose. No build step.
-- `scripts/check_site.py` and `tests/`, a standard-library checker that fails on broken internal
-  links, empty `href`, missing head metadata, a missing or non-reciprocal language twin, a page
-  absent from the sitemap, French typography slips and external links without the right `rel`.
+- `scripts/check_site.py` and `tests/`, a standard-library checker that fails on a broken internal
+  destination (anchors, images, scripts, stylesheets and icons), an empty `href`, missing head
+  metadata, a page whose French or English twin is missing, points at itself or does not point
+  back, a page absent from the sitemap, French typography slips in visible text and in titles and
+  descriptions, and external links without the right `rel`.
 - The partners page: the two paid formats, the audience figures measured on 2 November 2026, the
   client list (ArenaNet and NCSoft, Pearl Abyss, Square Enix), the game-key policy and rates on
   request. The page is built for the corporate reader, not for the audience.
@@ -25,9 +27,6 @@ All notable changes to this repository are documented here. The format follows
 - `favicon.ico`, `assets/apple-touch-icon.png` and `assets/og-image.jpg` (1200×630). The page
   referenced `favicon.ico` but the file had never been committed, so every visit logged a 404, and
   the social preview pointed at a WebP that some platforms do not accept.
-- Poppins is self-hosted from `assets/fonts/` (weights 400 and 600, Latin and Latin Extended),
-  replacing a `font-family` declaration that named a font the browser never loaded and silently
-  fell back to the system sans-serif.
 - `robots.txt`, `sitemap.xml` and `404.html`. The not-found page still needs an `error_page`
   directive in the homelab chart before nginx serves it.
 - Canonical URL, `theme-color`, `og:site_name`, `og:locale` and Open Graph image dimensions.
