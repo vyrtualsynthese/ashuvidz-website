@@ -35,7 +35,7 @@ All notable changes to this repository are documented here. The format follows
 
 ### Fixed
 
-- All 23 links that open in a new tab send `rel="noopener noreferrer"`.
+- Every link that opens in a new tab now sends `rel="noopener noreferrer"`; none did before.
 - The Amazon partner link pointed at `amzn.tu`, a domain that does not resolve, so the affiliate
   link was dead. It is `amzn.to` again.
 
