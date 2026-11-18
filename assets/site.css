@@ -46,12 +46,19 @@ html {
 
 body {
   margin: 0;
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
   background: var(--void);
   color: var(--paper);
   font-family: var(--font-text);
   font-size: 1rem;
   line-height: 1.65;
   -webkit-font-smoothing: antialiased;
+}
+
+main {
+  flex: 1 0 auto;
 }
 
 img {
@@ -387,6 +394,11 @@ a {
   width: min(var(--max), 100% - 2 * var(--gutter));
   margin-inline: auto;
   padding-block: clamp(7rem, 12vw, 9rem) 4rem;
+}
+
+.page--center {
+  display: grid;
+  align-content: center;
 }
 
 .page h1 {
