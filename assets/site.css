@@ -33,6 +33,15 @@
   --max: 1120px;
   --gutter: clamp(1.25rem, 4vw, 2.75rem);
 
+  /* typography: body text grows with the viewport, from 16px to 20px, so a
+     large monitor does not render the site at laptop size. The rem bounds
+     keep the text tied to the visitor's own font size. */
+  --size-body: clamp(1rem, 0.75rem + 0.3125vw, 1.25rem);
+
+  /* typography: the mono labels (nav, kickers, section titles) were 11px,
+     below a comfortable reading size; 12px to 14px keeps them labels. */
+  --size-label: clamp(0.75rem, 0.69rem + 0.16vw, 0.875rem);
+
   /* dark-mode: the site has one scheme, so tell the browser to theme
      scrollbars, form controls and the initial canvas to match it. */
   color-scheme: dark;
@@ -67,7 +76,7 @@ body {
   background: var(--void);
   color: var(--paper);
   font-family: var(--font-text);
-  font-size: 1rem;
+  font-size: var(--size-body);
   line-height: 1.65;
   -webkit-font-smoothing: antialiased;
 }
@@ -148,7 +157,7 @@ a {
 .lang-switch a,
 .lang-switch span {
   font-family: var(--font-mono);
-  font-size: 0.72rem;
+  font-size: var(--size-label);
   letter-spacing: 0.1em;
   text-transform: uppercase;
   text-decoration: none;
@@ -252,7 +261,7 @@ a {
 .kicker {
   margin: 0 0 1.3rem;
   font-family: var(--font-mono);
-  font-size: 0.7rem;
+  font-size: var(--size-label);
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--muted);
@@ -272,7 +281,7 @@ a {
   margin: 0;
   font-family: var(--font-display);
   font-weight: 400;
-  font-size: clamp(2.4rem, 5.2vw, 3.6rem);
+  font-size: clamp(2.4rem, 1.875rem + 2.157vw, 4.5rem);
   line-height: 1.06;
   text-transform: uppercase;
   /* typography: keep the headline's last line from being a single word. */
@@ -289,7 +298,6 @@ a {
   max-width: 34ch;
   margin: 1.5rem 0 0;
   color: var(--muted);
-  font-size: 1rem;
   text-wrap: pretty;
 }
 
@@ -306,7 +314,7 @@ a {
   border-radius: 999px;
   border: 1px solid rgba(244, 239, 230, 0.3);
   color: var(--paper);
-  font-size: 0.9rem;
+  font-size: 0.92em;
   font-weight: 600;
   text-decoration: none;
   transition:
@@ -369,7 +377,7 @@ a {
   max-width: var(--max);
   margin-inline: auto;
   font-family: var(--font-mono);
-  font-size: 0.7rem;
+  font-size: var(--size-label);
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--muted);
@@ -452,7 +460,7 @@ a {
   margin: 0 0 1.5rem;
   font-family: var(--font-display);
   font-weight: 400;
-  font-size: clamp(2.2rem, 5vw, 3.2rem);
+  font-size: clamp(2.2rem, 1.762rem + 1.798vw, 4rem);
   line-height: 1.05;
   text-transform: uppercase;
   text-wrap: balance;
@@ -477,7 +485,7 @@ a {
 .section__title {
   margin: 0 0 1.1rem;
   font-family: var(--font-mono);
-  font-size: 0.72rem;
+  font-size: var(--size-label);
   font-weight: 400;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -491,7 +499,7 @@ a {
 .profile-group h3 {
   margin: 0 0 0.5rem;
   font-family: var(--font-mono);
-  font-size: 0.72rem;
+  font-size: var(--size-label);
   font-weight: 400;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -528,12 +536,11 @@ a {
 .note {
   max-width: 56ch;
   color: var(--muted);
-  font-size: 0.9rem;
+  font-size: 0.92em;
 }
 
 .contact-line {
   font-family: var(--font-mono);
-  font-size: 1rem;
   letter-spacing: 0.04em;
 }
 
@@ -557,7 +564,7 @@ a {
 
 .services span {
   color: var(--muted);
-  font-size: 0.95rem;
+  font-size: 0.95em;
 }
 
 .facts {
@@ -585,14 +592,14 @@ a {
 
 .fact__value {
   font-family: var(--font-display);
-  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  font-size: clamp(1.6rem, 1.3375rem + 1.08vw, 2.6rem);
   line-height: 1;
 }
 
 .fact__label {
   margin-top: 0.35rem;
   font-family: var(--font-mono);
-  font-size: 0.68rem;
+  font-size: var(--size-label);
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--muted);
@@ -621,7 +628,7 @@ a {
 .stamp {
   margin: 0.9rem 0 0.4rem;
   font-family: var(--font-mono);
-  font-size: 0.72rem;
+  font-size: var(--size-label);
   letter-spacing: 0.04em;
   color: var(--muted);
 }
