@@ -34,7 +34,9 @@ without the right `rel`. It prints one line per problem and exits non-zero when 
 1. Branch from `develop`, commit, open a pull request into `develop`.
 2. Run `python3 scripts/check_site.py` and `python3 -m unittest discover -s tests`; both must be
    clean before you open the pull request.
-3. When `develop` is ready, open the release pull request `develop` → `main`.
+3. When `develop` is ready, open the release pull request `develop` → `main` and merge it with
+   **Create a merge commit**. A squash or rebase merge rewrites the commits and leaves `develop`
+   with no shared history with `main`; the next release then conflicts instead of applying.
 4. The pod picks up `main` within 60 seconds; hard-reload the page to see the change.
 
 Never commit to `main` or `develop` directly. If the pod serves an old page, its git-sync
